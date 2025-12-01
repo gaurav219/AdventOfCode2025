@@ -48,6 +48,7 @@ func main() {
 			return
 		}
 	
+		curr := value / 100
 
 		if value > 100 {
 			for value > 100 {
@@ -55,12 +56,16 @@ func main() {
 			}
 		}
 
+		count += curr
 		// fmt.Println(curr, " curr")
 		
 
 		if ch == "L"{
 			start = start - value
 			if(start < 0) {
+				if start != -value {
+					count += 1
+				}
 				start = 100 + start
 				if (start == 0) {
 					count += 1
@@ -72,6 +77,7 @@ func main() {
 		} else if ch == "R" {
 			start = start + value
 			if start > 100 {
+				count += 1
 				start = start % 100
 				if(start == 0) {
 					count += 1
